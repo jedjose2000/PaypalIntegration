@@ -6,6 +6,7 @@ use  App\Http\Controllers\Login;
 use  App\Http\Controllers\Dashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::post('/logout', [Dashboard::class,'logout'])->name('logout');
 Route::post('/create-account', [CreateAccount::class,'create'])->name('create-account');
 
 Route::post('/login', [Login::class,'login'])->name('login');
+
+Route::post('/payment', [Payment::class,'payment'])->name('payment');
+
+Route::get('/payment/success', [Payment::class,'success'])->name('payment-success');
+
+Route::get('/payment/cancelled', [Payment::class,'success'])->name('payment-cancelled');
 
 
 

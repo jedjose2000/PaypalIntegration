@@ -13,11 +13,13 @@ class Login extends Controller
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
-        ]);
- 
+        ]); 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+            // Get the user ID of the authenticated user
+            $userId = Auth::id();
+            $user = Auth::user();
+            
             return redirect()
                 ->route('dashboard');
         }else{
