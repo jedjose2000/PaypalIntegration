@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +7,6 @@
     <title>Login Form</title>
     <link rel="stylesheet" href="login-style.css" />
     @include('shared.imports')
-    @include('shared.navbar')
 </head>
 
 <body>

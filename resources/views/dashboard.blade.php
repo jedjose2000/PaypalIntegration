@@ -227,14 +227,14 @@
                 quantity
             },
             headers: {
-                'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+                'X-CSRF-TOKEN': csrfToken
             },
             success: function(res) {
                 if (res.message = "true") {
                     // Redirect to the payment approval link
                     window.location.href = res.link;
                 } else {
-                    // Handle other cases here
+                    // Handle other cases
                     alertify.error("Something went wrong");
                 }
             },
