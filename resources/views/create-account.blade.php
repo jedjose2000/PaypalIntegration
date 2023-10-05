@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
+    <link rel="stylesheet" href="login-style.css" />
     @include('shared.imports')
 </head>
 
@@ -66,21 +67,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-
-    <script>
-        $(document).ready(function () {
-            window.localStorage.setItem('show_popup_forgot', 'false');
-            window.localStorage.setItem('show_popup_firstTime', 'false');
-        });
-        if (window.localStorage.getItem('show_popup_forgot') == 'true') {
-            alertify.success('Password have been successfully updated');
-            window.localStorage.setItem('show_popup_forgot', 'false');
-        }
-        if (window.localStorage.getItem('show_popup_firstTime') == 'true') {
-            alertify.success('Password have been successfully updated');
-            window.localStorage.setItem('show_popup_firstTime', 'false');
-        }
-    </script>
 </body>
 
 </html>

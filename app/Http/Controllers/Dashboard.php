@@ -10,7 +10,8 @@ class Dashboard extends Controller
     public function index(){
         if (Auth::check()) {
             $user = Auth::user();
-            return view('dashboard', ['user' => $user]);
+            $pageTitle = "Dashboard";
+            return view('dashboard', ['user' => $user] + compact('pageTitle'));        
         }
         return redirect()->route('home')->withErrors(['login_error' => 'Please login first!'])->withInput();
     }

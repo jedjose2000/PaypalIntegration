@@ -38,15 +38,6 @@ body {
   border-radius: 4px 0 0 4px;
 }
 
-.forgot-password{
-  color: #1d1d1d !important;
-  transition: color .2s ease;
-}
-
-.forgot-password:hover{
-  color:rgb(255, 102, 0) !important;
-}
-
 
 .alert-success {
     position: relative;
@@ -64,9 +55,9 @@ body {
 
 .error-status {
   position: absolute;
-  top: 115px;
+  top: 100px;
   left: 0;
-  width:30%;
+  width:20%;
   right: -345px;
 }
 
@@ -80,38 +71,6 @@ body {
     display: none;
   }
 }
-
-.forgot-pass {
-  font-family: var(--main-font);
-  font-weight: 500;
-}
-
-div.forgot {
-  position: relative;
-}
-
-
-.forgot-pass:hover::after {
-  position: absolute;
-  content:'';
-  top: 26px;
-  right: 0;
-  height: 5px;
-  width: 120px;
-  background: var(--darker-main);
-  animation: forgot 0.5s ease;
-}
-
-
-
-@keyframes forgot{
-  from {width: 0px;}
-  to {width: 120px;}
-}
-
-
-
-
 
 
 .wrapper {

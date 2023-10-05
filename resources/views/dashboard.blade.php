@@ -5,45 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="https://kit.fontawesome.com/f38a62f9ed.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-    <!-- Semantic UI theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
-    <!-- Bootstrap theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    @include('shared.imports')
+    @include('shared.navbar')
 </head>
 
 <body>
-    <header id="header">
-        <div class="logo">
-            <img src="https://static.vecteezy.com/system/resources/previews/010/160/674/original/coffee-icon-sign-symbol-design-free-png.png"
-                id="header-img" alt="A coffee" />
-            <div id="header-text">Dashboard</div>
-        </div>
-        <div class="user-greetings">
-            <div> Hello {{ $user->username }}</div>
-        </div>
-        <nav id="nav-bar">
-            <a href="#coffee-ingredients" class="nav-link">Orders</a>
-            <a href="#coffee-ingredients" class="nav-link">Cart</a>
-            <a href="#" class="nav-link"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-        </nav>
-    </header>
+    @if (session('success'))
+        <script>
+            alertify.success("Payment Success!");
+        </script>
+    @elseif (session('failure'))
+        <script>
+            alertify.error("Payment Failed!");
+        </script>
+    @elseif (session('cancelled'))
+        <script>
+            alertify.error("Payment Cancelled!");
+        </script>
+    @endif
+
 
     <main>
         <h1 class="h1-header">Handmade, Fresh from the Farm</h1>
@@ -51,12 +33,6 @@
 
         </div>
     </main>
-
-
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        {{ csrf_field() }}
-    </form>
-
 
     <div class="container-fluid">
         <div class="row mb-3" id="productsContainer">

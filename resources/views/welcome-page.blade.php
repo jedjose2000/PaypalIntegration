@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
+    <link rel="stylesheet" href="login-style.css" />
     @include('shared.imports')
+    @include('shared.navbar')
 </head>
 
 <body>
@@ -44,9 +46,6 @@
                                 <input type="password" name="password" id="form3Example4"
                                     class="form-control form-control" placeholder="Enter password" required />
                             </div>
-                            <div class="mb-3 d-flex justify-content-end align-items-center">
-                                <a href="" class="forgot-password text-body fw-bold">Forgot password?</a>
-                            </div>
                             <div class="d-flex justify-content-end align-items-center">
                             <a href="{{ route('account') }}" class="create-account text-body fw-bold">Create Account</a>
                             </div>
@@ -73,21 +72,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.js"></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-
-    <script>
-        $(document).ready(function () {
-            window.localStorage.setItem('show_popup_forgot', 'false');
-            window.localStorage.setItem('show_popup_firstTime', 'false');
-        });
-        if (window.localStorage.getItem('show_popup_forgot') == 'true') {
-            alertify.success('Password have been successfully updated');
-            window.localStorage.setItem('show_popup_forgot', 'false');
-        }
-        if (window.localStorage.getItem('show_popup_firstTime') == 'true') {
-            alertify.success('Password have been successfully updated');
-            window.localStorage.setItem('show_popup_firstTime', 'false');
-        }
-    </script>
 </body>
 
 </html>

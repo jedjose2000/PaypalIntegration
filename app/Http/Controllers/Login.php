@@ -19,9 +19,8 @@ class Login extends Controller
             // Get the user ID of the authenticated user
             $userId = Auth::id();
             $user = Auth::user();
-            
-            return redirect()
-                ->route('dashboard');
+            $pageTitle = "Dashboard";
+            return redirect()->route('dashboard', compact('pageTitle'));
         }else{
             return redirect()
                 ->route('home')
